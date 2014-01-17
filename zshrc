@@ -260,3 +260,6 @@ local time="${GREEN}%*${RESET}"
 PROMPT="${time}:${user_host}${full_path} ${git_stuff}
 %B$%b "
 
+# PATH
+
+export PATH=$PATH:~/bin
