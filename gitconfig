@@ -1,0 +1,24 @@
+[core]
+  editor = vim
+[user]
+  name = tonchis
+  email = lucas.tolchinsky@gmail.com
+[color]
+  ui = true
+[color.status]
+  added = green
+  changed = yellow
+  untracked = red
+[github]
+  user = tonchis
+  password = !security find-internet-password -a tonchis -s github.com -w | tr -d '\n'
+[gist]
+  private = yes
+[alias]
+  commiters = !git log --pretty=short --no-merges | git shortlog -nes
+[pull]
+  rebase = true
+[push]
+  default = current
+[branch]
+  autosetuprebase = always
