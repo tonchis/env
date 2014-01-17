@@ -68,7 +68,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 if [ "`uname`" = 'Darwin' ]; then
   export LSCOLORS="gxfxcxdxbxegedabagacad"
   export COLORTERM=xterm-color256
-  export VISUAL="vim -p"
+  export VISUAL="mvim"
 else
   export LS_COLORS='di=36:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35'
   export COLORTERM=gnome-256color
