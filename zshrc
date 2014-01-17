@@ -51,7 +51,6 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -105,16 +104,12 @@ zstyle ':completion:*' group-order \
 alias c="clear"
 alias h="history"
 alias reload="source ~/.zshrc; clear"
-alias ec="$EDITOR ~/.oh-my-zsh/custom/custom.zsh"
+alias ec="$EDITOR ~/env/zshrc"
 alias ..="cd .."
 alias ~="cd ~/"
-alias t="~/bin/new_terminal_tab.rb"
 alias "bitch,"=sudo
 alias quit="exit"
 alias myip="curl http://whatismyip.org"
-alias psd="pushd"
-alias pod="popd"
-alias edit-zshrc="vim ~/.zshrc"
 
 if [ "`uname`" = 'Linux' ]; then
   alias ls="ls --color=always"
