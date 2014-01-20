@@ -15,3 +15,9 @@ In `~/.zshrc` put
 source ~/env/zshrc
 ```
 
+Install [homebrew](http://brew.sh/) and then
+
+```bash
+$ cd env; brew bundle
+```
+
