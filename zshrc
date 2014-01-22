@@ -270,6 +270,9 @@ export PATH=/usr/local/bin:$PATH
 
 # CHRUBY
 
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-
+CHRUBY_SCRIPT="/usr/local/opt/chruby/share/chruby/chruby.sh"
+CHRUBY_AUTO="/usr/local/share/chruby/auto.sh"
+if [[ -f $CHRUBY_SCRIPT ]] && [[ -f $CHRUBY_AUTO ]]; then
+  source $CHRUBY_SCRIPT
+  source $CHRUBY_AUTO
+fi
