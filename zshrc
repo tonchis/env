@@ -262,4 +262,12 @@ PROMPT="${time}:${user_host}${full_path} ${git_stuff}
 
 # PATH
 
-export PATH=$PATH:~/bin
+# Custom binaries
+export PATH=~/bin:$PATH
+
+# Homebrew's bin path
+export PATH=/usr/local/bin:$PATH
+
+# Chruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+
