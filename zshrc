@@ -268,6 +268,8 @@ export PATH=~/bin:$PATH
 # Homebrew's bin path
 export PATH=/usr/local/bin:$PATH
 
-# Chruby
+# CHRUBY
+
 source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 
