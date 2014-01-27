@@ -162,11 +162,6 @@ function gcm(){
   git commit -m $commit_message
 }
 
-function gemset(){
-  echo "$* global" > .rbenv-gemsets;
-  echo ".rbenv-gemsets" >> .git/info/exclude;
-}
-
 # PROMPT
 
 ZSH_THEME_GIT_PROMPT_PREFIX="${NGREEN}["
@@ -276,3 +271,4 @@ if [[ -f $CHRUBY_SCRIPT ]] && [[ -f $CHRUBY_AUTO ]]; then
   source $CHRUBY_SCRIPT
   source $CHRUBY_AUTO
 fi
+
