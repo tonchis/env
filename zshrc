@@ -243,6 +243,14 @@ function current_branch() {
   echo ${ref#refs/heads/}
 }
 
+function current_gemset() {
+   if [[ -n $GS_NAME ]]; then
+     echo "${WHITE}gem:$GS_NAME${RESET}"
+   else
+     return
+   fi
+}
+
 # PS1
 
 setopt promptsubst
@@ -251,8 +259,9 @@ local user_host="${RED}%n${RESET}@${GREEN}%m${RESET}:"
 local full_path="${CYAN}%~${RESET}"
 local git_stuff='$(git_prompt_info)${RESET}'
 local time="${GREEN}%*${RESET}"
+local gemset='$(current_gemset)'
 
-PROMPT="${time}:${user_host}${full_path} ${git_stuff}
+PROMPT="${time}:${user_host}${full_path} ${git_stuff} ${gemset}
 %B$%b "
 
 # PATH
