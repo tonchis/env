@@ -167,7 +167,7 @@ function gcm(){
 ZSH_THEME_GIT_PROMPT_PREFIX="${NGREEN}["
 ZSH_THEME_GIT_PROMPT_ADDED="${NGREEN}✘${RESET}"
 ZSH_THEME_GIT_PROMPT_RENAMED="${NGREEN}✘${RESET}"
-ZSH_THEME_GIT_PROMPT_DELETED="${NGREEN}✘${RESET}"
+ZSH_THEME_GIT_PROMPT_DELETED="${NYELLOW}✘${RESET}"
 ZSH_THEME_GIT_PROMPT_MODIFIED="${NYELLOW}✘${RESET}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="${NRED}✘${RESET}"
 ZSH_THEME_GIT_PROMPT_CLEAN="${NGREEN}✔${RESET}"
@@ -224,7 +224,7 @@ function git_prompt_status() {
   if $(echo "$INDEX" | grep '^R  ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_RENAMED$STATUS"
   fi
-  if $(echo "$INDEX" | grep '^D ' &> /dev/null); then
+  if $(echo "$INDEX" | grep 'D ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_DELETED$STATUS"
   fi
   if $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
