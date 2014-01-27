@@ -164,14 +164,12 @@ function gcm(){
 
 # PROMPT
 
-ZSH_THEME_GIT_PROMPT_PREFIX="${NGREEN}["
 ZSH_THEME_GIT_PROMPT_ADDED="${NGREEN}✘${RESET}"
 ZSH_THEME_GIT_PROMPT_RENAMED="${NGREEN}✘${RESET}"
 ZSH_THEME_GIT_PROMPT_DELETED="${NYELLOW}✘${RESET}"
 ZSH_THEME_GIT_PROMPT_MODIFIED="${NYELLOW}✘${RESET}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="${NRED}✘${RESET}"
 ZSH_THEME_GIT_PROMPT_CLEAN="${NGREEN}✔${RESET}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="${NGREEN}]${RESET}"
 
 # get the name of the branch or commit (short SHA) we are on
 function git_prompt_info() {
@@ -245,7 +243,7 @@ function current_branch() {
 
 function current_gemset() {
    if [[ -n $GS_NAME ]]; then
-     echo "${WHITE}gem:$GS_NAME${RESET}"
+     echo "gem:$GS_NAME"
    else
      return
    fi
@@ -256,13 +254,13 @@ function current_gemset() {
 
 setopt promptsubst
 
-local user_host="${RED}%n${RESET}@${GREEN}%m${RESET}:"
-local full_path="${CYAN}%~${RESET}"
+local user='${RED}%n${RESET}'
+local host='${GREEN}%m${RESET}'
+local full_path='${CYAN}%~${RESET}'
 local git_stuff='$(git_prompt_info)${RESET}'
-local time="${GREEN}%*${RESET}"
-local gemset='$(current_gemset)'
+local gemset='${WHITE}$(current_gemset)${RESET}'
 
-PROMPT="${time}:${user_host}${full_path} ${git_stuff} ${gemset}
+PROMPT="${user}@${host}:${full_path} ${git_stuff} ${gemset}
 %B$%b "
 
 # PATH
