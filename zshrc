@@ -272,6 +272,9 @@ export PATH=~/bin:$PATH
 # Homebrew's bin path
 export PATH=/usr/local/bin:$PATH
 
+# gst
+export PATH=~/code/gst/bin:$PATH
+
 # CHRUBY
 
 CHRUBY_SCRIPT="/usr/local/opt/chruby/share/chruby/chruby.sh"
