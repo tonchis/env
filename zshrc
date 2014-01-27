@@ -251,6 +251,7 @@ function current_gemset() {
    fi
 }
 
+
 # PS1
 
 setopt promptsubst
@@ -287,3 +288,12 @@ if [[ -f $CHRUBY_SCRIPT ]] && [[ -f $CHRUBY_AUTO ]]; then
   source $CHRUBY_AUTO
 fi
 
+# CHPWD
+
+chpwd() {
+  if [[ -d "$(pwd)/.gs" ]]; then
+    source gst in
+  else
+    source gst out
+  fi
+}
