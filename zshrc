@@ -241,9 +241,13 @@ function current_branch() {
   echo ${ref#refs/heads/}
 }
 
-function current_gemset() {
+function in_gemset() {
    if [[ -n $GS_NAME ]]; then
-     echo "gem:$GS_NAME"
+     if [[ $(uname) == "Darwin" ]]; then
+       echo "💎"
+     else
+       echo "♢"
+     fi
    else
      return
    fi
@@ -258,7 +262,7 @@ local user='${RED}%n${RESET}'
 local host='${GREEN}%m${RESET}'
 local full_path='${CYAN}%~${RESET}'
 local git_stuff='$(git_prompt_info)${RESET}'
-local gemset='${WHITE}$(current_gemset)${RESET}'
+local gemset='${NRED}$(in_gemset)${RESET}'
 
 PROMPT="${user}@${host}:${full_path} ${git_stuff} ${gemset}
 %B$%b "
