@@ -138,7 +138,6 @@ alias gdc="git diff --word-diff --cached"
 alias gsh="git show"
 alias gm="git merge"
 alias gush="git push origin"
-alias gash="git stash"
 alias gsp="git stash pop"
 alias gull="git pull"
 alias gundo="git reset --soft HEAD~1"
@@ -160,6 +159,10 @@ function gcm(){
   fi
 
   git commit -m $commit_message
+}
+
+function gash(){
+  git stash save "$*"
 }
 
 # PROMPT
