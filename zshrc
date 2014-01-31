@@ -4,31 +4,23 @@ colors
 # VARIABLES
 
 RED="%{$fg[red]%}"
-NRED="%{$fg_bold[red]%}"
-
 GREEN="%{$fg[green]%}"
-NGREEN="%{$fg_bold[green]%}"
-
 BLUE="%{$fg[blue]%}"
-NBLUE="%{$fg_bold[blue]%}"
-
 GREY="%{$fg[grey]%}"
-NGREY="%{$fg_bold[grey]%}"
-
-BLACK="%{$fg[black]%}"
-GREY="%{$fg[grey]%}"
-
 MAGENTA="%{$fg[magenta]%}"
-NMAGENTA="%{$fg_bold[magenta]%}"
-
 CYAN="%{$fg[cyan]%}"
-NCYAN="%{$fg_bold[cyan]%}"
-
 WHITE="%{$fg[white]%}"
-NWHITE="%{$fg_bold[white]%}"
-
 YELLOW="%{$fg[yellow]%}"
-NYELLOW="%{$fg_bold[yellow]%}"
+BLACK="%{$fg[black]%}"
+
+BRED="%{$fg_bold[red]%}"
+BGREEN="%{$fg_bold[green]%}"
+BBLUE="%{$fg_bold[blue]%}"
+BGREY="%{$fg_bold[grey]%}"
+BMAGENTA="%{$fg_bold[magenta]%}"
+BCYAN="%{$fg_bold[cyan]%}"
+BWHITE="%{$fg_bold[white]%}"
+BYELLOW="%{$fg_bold[yellow]%}"
 
 RESET="%{$reset_color%}"
 
@@ -167,12 +159,12 @@ function gash(){
 
 # PROMPT
 
-ZSH_THEME_GIT_PROMPT_ADDED="${NGREEN}✘${RESET}"
-ZSH_THEME_GIT_PROMPT_RENAMED="${NGREEN}✘${RESET}"
-ZSH_THEME_GIT_PROMPT_DELETED="${NYELLOW}✘${RESET}"
-ZSH_THEME_GIT_PROMPT_MODIFIED="${NYELLOW}✘${RESET}"
+ZSH_THEME_GIT_PROMPT_ADDED="${BGREEN}✘${RESET}"
+ZSH_THEME_GIT_PROMPT_RENAMED="${BGREEN}✘${RESET}"
+ZSH_THEME_GIT_PROMPT_DELETED="${BYELLOW}✘${RESET}"
+ZSH_THEME_GIT_PROMPT_MODIFIED="${BYELLOW}✘${RESET}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="${NRED}✘${RESET}"
-ZSH_THEME_GIT_PROMPT_CLEAN="${NGREEN}✔${RESET}"
+ZSH_THEME_GIT_PROMPT_CLEAN="${BGREEN}✔${RESET}"
 
 # get the name of the branch or commit (short SHA) we are on
 function git_prompt_info() {
@@ -273,7 +265,7 @@ setopt promptsubst
 local user='${RED}%n${RESET}'
 local host='${GREEN}%m${RESET}'
 local full_path='${CYAN}%~${RESET}'
-local git_stuff='$(git_prompt_info)${RESET}'
+local git_stuff='${WHITE}$(git_prompt_info)${RESET}'
 local ruby_version='${RED}$(current_ruby)${RESET}'
 local gemset='${GREEN}$(in_gemset)${RESET}'
 
