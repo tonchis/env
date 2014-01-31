@@ -246,16 +246,25 @@ function current_branch() {
 
 function in_gemset() {
    if [[ -n $GS_NAME ]]; then
-     if [[ $(uname) == "Darwin" ]]; then
-       echo "💎"
-     else
-       echo "♢"
-     fi
+     echo $GS_NAME
+     # if [[ $(uname) == "Darwin" ]]; then
+       # echo "💎"
+     # else
+       # echo "♢"
+     # fi
    else
-     return
+     echo "default"
+     # return
    fi
 }
 
+function current_ruby() {
+  if [[ -n $RUBY_VERSION ]]; then
+    echo $RUBY_VERSION
+  else
+    echo "system"
+  fi
+}
 
 # PS1
 
@@ -265,9 +274,10 @@ local user='${RED}%n${RESET}'
 local host='${GREEN}%m${RESET}'
 local full_path='${CYAN}%~${RESET}'
 local git_stuff='$(git_prompt_info)${RESET}'
-local gemset='${NRED}$(in_gemset)${RESET}'
+local ruby_version='${RED}$(current_ruby)${RESET}'
+local gemset='${GREEN}$(in_gemset)${RESET}'
 
-PROMPT="${user}@${host}:${full_path} ${git_stuff} ${gemset}
+PROMPT="${user}@${host} ${ruby_version}@${gemset} ${full_path} ${git_stuff}
 %B$%b "
 
 # PATH
@@ -287,9 +297,8 @@ export PATH=~/code/git-pull-request/bin:$PATH
 # CHRUBY
 
 CHRUBY_SCRIPT="/usr/local/opt/chruby/share/chruby/chruby.sh"
-CHRUBY_AUTO="/usr/local/share/chruby/auto.sh"
-if [[ -f $CHRUBY_SCRIPT ]] && [[ -f $CHRUBY_AUTO ]]; then
-  source $CHRUBY_SCRIPT
-  source $CHRUBY_AUTO
-fi
+if [[ -f $CHRUBY_SCRIPT ]]; then source $CHRUBY_SCRIPT; fi
+
+RUBY_DEFAULT_VERSION=$(cat ~/.ruby-version)
+if [[ -n $RUBY_DEFAULT_VERSION ]]; then chruby $RUBY_DEFAULT_VERSION; fi
 
