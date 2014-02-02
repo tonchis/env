@@ -1,23 +1,7 @@
 My env files.
 
-Remember to install `git`
+Remember to install `git` and [homebrew](http://brew.sh/)
 
-In `~/.gitconfig` put
+To symlink the dotfiles run `$ ./install` from this directory.
 
-```
-[include]
-	path = ~/env/gitconfig
-```
-
-In `~/.zshrc` put
-
-```
-source ~/env/zshrc
-```
-
-Install [homebrew](http://brew.sh/) and then
-
-```bash
-$ brew bundle env/Brewfile
-```
-
+To install brew recipes run `$ brew bundle Brewfile`

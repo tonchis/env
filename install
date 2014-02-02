@@ -1,0 +1,17 @@
+#!/bin/bash
+
+EXCLUDE_FILES=(Brewfile README.md install)
+
+# Joins excluded files with |
+SAVE_IFS=$IFS
+IFS="|"
+EXCLUDE_FILES="${EXCLUDE_FILES[*]}"
+IFS=$SAVE_IFS
+
+FILES=$(git ls-files | sed -E s/$EXCLUDE_FILES//)
+for FILE in $FILES; do
+  rm "$HOME/.$FILE"
+  ln -s "$PWD/$FILE" "$HOME/.$FILE"
+done
+
+echo "Done"
