@@ -156,7 +156,7 @@ function gcm(){
 }
 
 function gash(){
-  git stash save "$*"
+  git stash save -u "$*"
 }
 
 # PROMPT
