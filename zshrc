@@ -103,16 +103,12 @@ alias ..="cd .."
 alias ~="cd ~/"
 alias "bitch,"=sudo
 alias quit="exit"
-alias myip="curl http://whatismyip.org"
 
 if [ "`uname`" = 'Linux' ]; then
   alias ls="ls --color=always"
 else
   alias ls="ls -G"
 fi
-
-# RSpec
-alias spec="spec --color --format doc"
 
 # Git
 alias gout="git checkout"
@@ -139,8 +135,9 @@ alias gpr="git pull-request"
 
 # Vagrant
 alias v="vagrant"
-alias vu="vagrant up"
-alias vh="vagrant halt"
+
+# Other
+alias "1.9.3-in"="chruby 1.9.3; . gst in"
 
 # Custom functions
 function gcm(){
@@ -296,3 +293,4 @@ if [[ -f $CHRUBY_SCRIPT ]]; then source $CHRUBY_SCRIPT; fi
 RUBY_DEFAULT_VERSION=$(cat ~/.ruby-version)
 if [[ -n $RUBY_DEFAULT_VERSION ]]; then chruby $RUBY_DEFAULT_VERSION; fi
 
+setopt interactivecomments
