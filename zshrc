@@ -278,7 +278,7 @@ PROMPT="${user}@${host} ${ruby_version}@${gemset} ${full_path} ${git_stuff}
 export PATH=~/bin:$PATH
 
 # Homebrew's bin path
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # gst
 export PATH=~/code/gst/bin:$PATH
