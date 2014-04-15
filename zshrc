@@ -226,7 +226,10 @@ export PATH=~/code/git-pull-request/bin:$PATH
 # CHRUBY
 
 CHRUBY_SCRIPT="/usr/local/opt/chruby/share/chruby/chruby.sh"
-if [[ -f $CHRUBY_SCRIPT ]]; then source $CHRUBY_SCRIPT; fi
+if [[ -f $CHRUBY_SCRIPT ]]; then
+  source $CHRUBY_SCRIPT
+  export RUBY_MANAGER='chruby'
+fi
 
 RUBY_DEFAULT_VERSION=$(cat ~/.ruby-version)
 if [[ -n $RUBY_DEFAULT_VERSION ]]; then chruby $RUBY_DEFAULT_VERSION; fi
