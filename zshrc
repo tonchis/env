@@ -139,6 +139,7 @@ alias v="vagrant"
 # Other
 alias "1.9.3-in"="chruby 1.9.3; . gst in"
 alias t="tmux"
+alias f="foreman"
 
 # Custom functions
 function gcm(){
