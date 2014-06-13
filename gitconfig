@@ -18,7 +18,5 @@
   commiters = !git log --pretty=short --no-merges | git shortlog -nes
 [pull]
   rebase = true
-[push]
-  default = simple
 [branch]
   autosetuprebase = always
