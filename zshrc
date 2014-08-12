@@ -123,8 +123,8 @@ alias gga="git log --decorate --oneline --all --graph"
 alias grb="git rebase"
 alias gr="git reset"
 alias grh="git reset HEAD"
-alias gd="git diff --word-diff"
-alias gdc="git diff --word-diff --cached"
+alias gd="git diff --color-words"
+alias gdc="git diff --color-words --cached"
 alias gsh="git show"
 alias gm="git merge"
 alias gush="git push origin"
@@ -140,6 +140,7 @@ alias v="vagrant"
 alias "1.9.3-in"="chruby 1.9.3; . gst in"
 alias t="tmux"
 alias f="foreman"
+alias tele-ssh="ssh -F .tele/ssh_config"
 
 # Custom functions
 function gcm(){
