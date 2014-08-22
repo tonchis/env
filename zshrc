@@ -144,7 +144,7 @@ alias f="foreman"
 alias tele-ssh="ssh -F .tele/ssh_config"
 
 # Custom functions
-function gcm(){
+function gcm() {
   issue_number=$(git symbolic-ref --short HEAD | grep -Ei "^\d+[-_]" | grep -oEi "^\d+")
 
   if [[ -n $issue_number ]]; then
@@ -156,8 +156,12 @@ function gcm(){
   git commit -m $commit_message
 }
 
-function gash(){
+function gash() {
   git stash save -u "$*"
+}
+
+function vag() {
+  vim -p $(ag $* -l)
 }
 
 # PROMPT
