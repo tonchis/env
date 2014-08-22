@@ -103,6 +103,7 @@ alias ..="cd .."
 alias ~="cd ~/"
 alias "bitch,"=sudo
 alias quit="exit"
+alias ll="ls -lsah"
 
 if [ "`uname`" = 'Linux' ]; then
   alias ls="ls --color=always"
