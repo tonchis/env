@@ -164,6 +164,24 @@ function vag() {
   vim -p $(ag $* -l)
 }
 
+function hcurl() {
+  (curl -v -o /dev/null $@ 2>&1) | grep '^[<>]' | cat
+}
+
+# Git rebase with origin
+function grbo() {
+  branch=${1:-$(git symbolic-ref --short HEAD)}
+
+  git rebase origin/$branch $branch
+}
+
+# Git push setting remote tracking
+function gushu() {
+  branch=${1:-$(git symbolic-ref --short HEAD)}
+
+  git push -u origin $branch
+}
+
 # PROMPT
 
 ZSH_THEME_GIT_PROMPT_ADDED="${BGREEN}✘${RESET}"
