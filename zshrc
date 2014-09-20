@@ -262,3 +262,6 @@ RUBY_DEFAULT_VERSION=$(cat ~/.ruby-version)
 if [[ -n $RUBY_DEFAULT_VERSION ]]; then chruby $RUBY_DEFAULT_VERSION; fi
 
 setopt interactivecomments
+
+# OPAM configuration
+. /Users/tonchis/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
