@@ -95,9 +95,8 @@ zstyle ':completion:*' group-order \
 # ALIASES
 
 # Global
-alias c="clear"
-alias h="history"
 alias reload="source ~/.zshrc; clear"
+alias e="$EDITOR"
 alias ec="$EDITOR ~/env/zshrc"
 alias ..="cd .."
 alias ~="cd ~/"
@@ -133,13 +132,18 @@ alias gsp="git stash pop"
 alias gull="git pull"
 alias gundo="git reset --soft HEAD~1"
 alias gpr="git pull-request"
+alias current-branch="git symbolic-ref --short HEAD"
+alias grbom="git rebase origin/master master"
 
 # Vagrant
 alias v="vagrant"
 
-# Other
-alias "1.9.3-in"="chruby 1.9.3; . gst in"
+# Tmux
 alias t="tmux"
+alias ta="tmux attach -t"
+alias ts="tmux new-session -s"
+
+# Other
 alias f="foreman"
 alias tele-ssh="ssh -F .tele/ssh_config"
 
@@ -168,28 +172,31 @@ function hcurl() {
   (curl -v -o /dev/null $@ 2>&1) | grep '^[<>]' | cat
 }
 
+function rbenv() {
+  echo "which ruby    $(which ruby)"
+  echo "gem env home  $(gem env home)"
+}
+
+function whowhere() {
+  echo "whoami    $(whoami)"
+  echo "hostname  $(hostname)"
+}
+
 # Git rebase with origin
 function grbo() {
-  branch=${1:-$(git symbolic-ref --short HEAD)}
+  branch=${1:-$(current-branch)}
 
   git rebase origin/$branch $branch
 }
 
 # Git push setting remote tracking
 function gushu() {
-  branch=${1:-$(git symbolic-ref --short HEAD)}
+  branch=${1:-$(current-branch)}
 
   git push -u origin $branch
 }
 
 # PROMPT
-
-ZSH_THEME_GIT_PROMPT_ADDED="${BGREEN}✘${RESET}"
-ZSH_THEME_GIT_PROMPT_RENAMED="${BGREEN}✘${RESET}"
-ZSH_THEME_GIT_PROMPT_DELETED="${BYELLOW}✘${RESET}"
-ZSH_THEME_GIT_PROMPT_MODIFIED="${BYELLOW}✘${RESET}"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="${BRED}✘${RESET}"
-ZSH_THEME_GIT_PROMPT_CLEAN="${BGREEN}✔${RESET}"
 
 # get the name of the branch or commit (short SHA) we are on
 function git_prompt_info() {
@@ -197,40 +204,14 @@ function git_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref}$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
-function in_gemset() {
-   if [[ -n $GS_NAME ]]; then
-     echo $GS_NAME
-     # if [[ $(uname) == "Darwin" ]]; then
-       # echo "💎"
-     # else
-       # echo "♢"
-     # fi
-   else
-     echo "default"
-     # return
-   fi
-}
-
-function current_ruby() {
-  if [[ -n $RUBY_VERSION ]]; then
-    echo $RUBY_VERSION
-  else
-    echo "system"
-  fi
-}
-
 # PS1
 
 setopt promptsubst
 
-local user='${RED}%n${RESET}'
-local host='${GREEN}%m${RESET}'
 local full_path='${CYAN}%~${RESET}'
 local git_stuff='${WHITE}$(git_prompt_info)${RESET}'
-local ruby_version='${RED}$(current_ruby)${RESET}'
-local gemset='${GREEN}$(in_gemset)${RESET}'
 
-PROMPT="${user}@${host} ${ruby_version}@${gemset} ${full_path} ${git_stuff}
+PROMPT="${full_path} ${git_stuff}
 %B$%b "
 
 # PATH
