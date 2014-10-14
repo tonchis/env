@@ -182,6 +182,15 @@ function whowhere() {
   echo "hostname  $(hostname)"
 }
 
+function tmfy() {
+  if [[ -n $1 ]]; then
+    cd $1
+    tmuxify
+  else
+    echo "Specify a directory with a .tmuxify.layout file where to start the session"
+  fi
+}
+
 # Git rebase with origin
 function grbo() {
   branch=${1:-$(current-branch)}
