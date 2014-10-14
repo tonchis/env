@@ -231,15 +231,6 @@ export PATH=~/bin:$PATH
 # Homebrew's bin path
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
-# gst
-export PATH=~/code/gst/bin:$PATH
-
-# git-pull-request
-export PATH=~/code/git-pull-request/bin:$PATH
-
-# tmuxify
-export PATH=~/code/tmuxify/bin:$PATH
-
 # CHRUBY
 
 CHRUBY_SCRIPT="/usr/local/opt/chruby/share/chruby/chruby.sh"
