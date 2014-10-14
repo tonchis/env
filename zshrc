@@ -210,15 +210,15 @@ function gushu() {
 # get the name of the branch or commit (short SHA) we are on
 function git_prompt_info() {
   ref=$(git symbolic-ref --short HEAD 2> /dev/null) || ref=$(git rev-parse --short HEAD 2> /dev/null) || return
-  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref}$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  echo "${ref}"
 }
 
 # PS1
 
 setopt promptsubst
 
-local full_path='${CYAN}%~${RESET}'
-local git_stuff='${WHITE}$(git_prompt_info)${RESET}'
+local full_path='${CYAN}%~'
+local git_stuff='${RESET}$(git_prompt_info)'
 
 PROMPT="${full_path} ${git_stuff}
 %B$%b "
