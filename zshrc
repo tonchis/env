@@ -209,6 +209,10 @@ function gushu() {
   git push -u origin $branch
 }
 
+function ircag() {
+  ag $* ~/Documents/LimeChat\ Transcripts
+}
+
 # PROMPT
 
 # get the name of the branch or commit (short SHA) we are on
