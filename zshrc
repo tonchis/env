@@ -173,7 +173,7 @@ function hcurl() {
 }
 
 function scurl() {
-  (curl -v -o /dev/null $@ 2>&1) | grep "< HTTP/1" | awk '{print $3}' | cat
+  curl -w '%{http_code}\n' -s -f -o /dev/null $@
 }
 
 function rb-env() {
