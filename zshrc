@@ -176,6 +176,10 @@ function scurl() {
   curl -w '%{http_code}\n' -s -f -o /dev/null $@
 }
 
+function yoall() {
+  curl -s -o /dev/null -X POST "https://api.justyo.co/yoall" -d api_token=$1
+}
+
 function rb-env() {
   echo "which ruby    $(which ruby)"
   echo "gem env home  $(gem env home)"
