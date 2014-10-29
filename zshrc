@@ -172,6 +172,10 @@ function hcurl() {
   (curl -v -o /dev/null $@ 2>&1) | grep '^[<>]' | cat
 }
 
+function scurl() {
+  hcurl $@ | grep "< HTTP/1" | awk '{print $3}' | cat
+}
+
 function rb-env() {
   echo "which ruby    $(which ruby)"
   echo "gem env home  $(gem env home)"
