@@ -177,7 +177,7 @@ function scurl() {
 }
 
 function yoall() {
-  curl -s -o /dev/null -X POST "https://api.justyo.co/yoall" -d api_token=$1
+  curl -X POST "https://api.justyo.co/yoall" -d api_token=$@
 }
 
 function rb-env() {
