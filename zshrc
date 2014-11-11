@@ -103,6 +103,7 @@ alias ~="cd ~/"
 alias "bitch,"=sudo
 alias quit="exit"
 alias ll="ls -lsah"
+alias mj="make --jobs=4"
 
 if [ "`uname`" = 'Linux' ]; then
   alias ls="ls --color=always"
@@ -142,6 +143,7 @@ alias v="vagrant"
 alias t="tmux"
 alias ta="tmux attach -t"
 alias ts="tmux new-session -s"
+alias tk="tmux kill-session -t"
 
 # Other
 alias f="foreman"
@@ -213,8 +215,18 @@ function gushu() {
   git push -u origin $branch
 }
 
+# Search through LimeChat Transcripts
 function ircag() {
   ag $* ~/Documents/LimeChat\ Transcripts
+}
+
+function chrb() {
+  chruby `cat .ruby-version`
+}
+
+# mkdir and touch.
+function mkt() {
+  mkdir -p $(dirname $1) && touch $1
 }
 
 # PROMPT
