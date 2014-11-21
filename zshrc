@@ -128,7 +128,6 @@ alias gd="git diff --color-words"
 alias gdc="git diff --color-words --cached"
 alias gsh="git show"
 alias gm="git merge"
-alias gush="git push origin"
 alias gsp="git stash pop"
 alias gull="git pull"
 alias gundo="git reset --soft HEAD~1"
@@ -214,6 +213,10 @@ function gushu() {
   branch=${1:-$(current-branch)}
 
   git push -u origin $branch
+}
+
+function gush() {
+  tests && git push
 }
 
 # Search through LimeChat Transcripts
