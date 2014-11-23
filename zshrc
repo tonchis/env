@@ -233,6 +233,10 @@ function mkt() {
   mkdir -p $(dirname $1) && touch $1
 }
 
+function show() {
+  less $(which $1)
+}
+
 # PROMPT
 
 # get the name of the branch or commit (short SHA) we are on
