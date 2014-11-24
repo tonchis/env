@@ -10,8 +10,7 @@ IFS=$SAVE_IFS
 
 FILES=$(git ls-files | sed -E s/$EXCLUDE_FILES//)
 for FILE in $FILES; do
-  rm -f "$HOME/.$FILE"
-  ln -s "$PWD/$FILE" "$HOME/.$FILE"
+  ln -sf "$PWD/$FILE" "$HOME/.$FILE"
 done
 
 echo "Done"
