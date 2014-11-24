@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EXCLUDE_FILES=(Brewfile README.md install ensure-manifest)
+EXCLUDE_FILES=(README.md install ensure-manifest)
 
 # Joins excluded files with |
 SAVE_IFS=$IFS
