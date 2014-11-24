@@ -263,6 +263,9 @@ export PATH=~/bin:$PATH
 # Homebrew's bin path
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
+# https://github.com/foca/ensure bin path.
+export PATH="$PATH:/opt/ensure/bin"
+
 # CHRUBY
 
 CHRUBY_SCRIPT="/usr/local/opt/chruby/share/chruby/chruby.sh"

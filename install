@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EXCLUDE_FILES=(Brewfile README.md install)
+EXCLUDE_FILES=(Brewfile README.md install ensure-manifest)
 
 # Joins excluded files with |
 SAVE_IFS=$IFS
@@ -12,5 +12,7 @@ FILES=$(git ls-files | sed -E s/$EXCLUDE_FILES//)
 for FILE in $FILES; do
   ln -sf "$PWD/$FILE" "$HOME/.$FILE"
 done
+
+ln -sf "$PWD/ensure-manifest" "$HOME/.ensure/manifest"
 
 echo "Done"

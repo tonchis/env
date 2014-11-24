@@ -1,0 +1,19 @@
+ensure_brew
+
+ensure_package zsh
+ensure_package tmux
+ensure_package the_silver_searcher
+ensure_package ruby-install
+ensure_package chruby
+ensure_package tree
+ensure_package htop
+
+ensure_tap tonchis/goodies
+ensure_package gst
+ensure_package git-pull-request
+ensure_package tmuxify
+
+ensure_tap educabilia/tooling
+ensure_package bs
+
+# vim: set ft=sh :
