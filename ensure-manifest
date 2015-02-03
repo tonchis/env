@@ -1,6 +1,7 @@
 ensure_brew
 
 ensure_package zsh
+ensure_package vim
 ensure_package tmux
 ensure_package the_silver_searcher
 ensure_package ruby-install
