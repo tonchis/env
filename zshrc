@@ -292,3 +292,6 @@ setopt interactivecomments
 
 # OPAM configuration
 . /Users/tonchis/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# GPG
+export GPGKEY=2A0AB6FB
