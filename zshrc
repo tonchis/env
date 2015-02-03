@@ -233,6 +233,12 @@ function show() {
   less $(which $1)
 }
 
+function grbd() {
+  local branch=${1:-$(current-branch)}
+
+  git rebase origin/master master && git branch -d $branch
+}
+
 function pwpw() {
   local output=$(pwsafe -p $1)
   echo $output | pbcopy
