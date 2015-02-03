@@ -230,7 +230,7 @@ function mkt() {
 }
 
 function show() {
-  if [[ $(type $1) =~ "shell function" ]]; then
+  if [[ $(type $1) =~ "shell function" ]] || [[ $(type $1) =~ "alias" ]]; then
     which $1
   else
     less $(which $1)
