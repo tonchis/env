@@ -208,7 +208,7 @@ function grbo() {
 function gushu() {
   branch=${1:-$(current-branch)}
 
-  git push -u origin $branch
+  tests && git push -u origin $branch
 }
 
 function gush() {
