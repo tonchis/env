@@ -230,7 +230,11 @@ function mkt() {
 }
 
 function show() {
-  less $(which $1)
+  if [[ $(type $1) =~ "shell function" ]]; then
+    which $1
+  else
+    less $(which $1)
+  fi
 }
 
 function grbd() {
