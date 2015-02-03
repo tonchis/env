@@ -233,6 +233,11 @@ function show() {
   less $(which $1)
 }
 
+function pwpw() {
+  local output=$(pwsafe -p $1)
+  echo $output | pbcopy
+}
+
 function vag() {
   ag -l $@ | xargs -o vim -p "+/$1" "+:set hlsearch!"
 }
