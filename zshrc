@@ -166,10 +166,6 @@ function gash() {
   git stash save -u "$*"
 }
 
-function vag() {
-  vim -p $(ag $* -l)
-}
-
 function hcurl() {
   (curl -v -o /dev/null $@ 2>&1) | grep '^[<>]' | cat
 }
@@ -235,6 +231,10 @@ function mkt() {
 
 function show() {
   less $(which $1)
+}
+
+function vag() {
+  ag -l $@ | xargs -o vim -p "+/$1" "+:set hlsearch!"
 }
 
 # PROMPT
