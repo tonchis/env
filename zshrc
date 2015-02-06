@@ -244,8 +244,7 @@ function grbd() {
 }
 
 function pwpw() {
-  local output=$(pwsafe -p $1)
-  echo $output | pbcopy
+  echo -n $(pwsafe -p $1) | pbcopy
 }
 
 function vag() {
