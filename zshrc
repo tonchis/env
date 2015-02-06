@@ -251,6 +251,10 @@ function vag() {
   ag -l $@ | xargs -o vim -p "+/$1" "+:set hlsearch!"
 }
 
+function vc() {
+  git status --short | ag "UU .*" | awk '{ print $2 }' | xargs -o vim -p "+/<<<<" "+:set hlsearch!"
+}
+
 # PROMPT
 
 # get the name of the branch or commit (short SHA) we are on
