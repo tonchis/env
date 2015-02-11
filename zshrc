@@ -188,13 +188,22 @@ function whowhere() {
   echo "hostname  $(hostname)"
 }
 
-function tmfy() {
-  if [[ -n $1 ]]; then
-    cd $1
-    tmuxify
-  else
-    echo "Specify a directory with a .tmuxify.layout file where to start the session"
+function tt() {
+  local layout="$PWD/.tmuxify.layout"
+
+  if [[ ! -f $layout ]]; then
+
+cat <<EOS > $layout
+dev 1* clear
+vim 1 vim
+EOS
+
+    if [[ -d "$PWD/.git" ]]; then
+      echo ".tmuxify.layout" >> "$PWD/.git/info/exclude"
+    fi
   fi
+
+  tmuxify
 }
 
 # Git rebase with origin
