@@ -192,11 +192,8 @@ function tt() {
   local layout="$PWD/.tmuxify.layout"
 
   if [[ ! -f $layout ]]; then
-
-cat <<EOS > $layout
-dev 1* clear
-vim 1 vim
-EOS
+    echo "dev 1* clear" >> $layout
+    echo "vim 1 vim" >> $layout
 
     if [[ -d "$PWD/.git" ]]; then
       echo ".tmuxify.layout" >> "$PWD/.git/info/exclude"
