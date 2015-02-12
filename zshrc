@@ -188,21 +188,6 @@ function whowhere() {
   echo "hostname  $(hostname)"
 }
 
-function tt() {
-  local layout="$PWD/.tmuxify.layout"
-
-  if [[ ! -f $layout ]]; then
-    echo "dev 1* clear" >> $layout
-    echo "vim 1 vim" >> $layout
-
-    if [[ -d "$PWD/.git" ]]; then
-      echo ".tmuxify.layout" >> "$PWD/.git/info/exclude"
-    fi
-  fi
-
-  tmuxify
-}
-
 # Git rebase with origin
 function grbo() {
   branch=${1:-$(current-branch)}
