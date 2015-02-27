@@ -8,6 +8,7 @@ ensure_package ruby-install
 ensure_package chruby
 ensure_package tree
 ensure_package htop
+ensure_package entr
 
 ensure_tap tonchis/goodies
 ensure_package gst
