@@ -148,6 +148,7 @@ alias tk="tmux kill-session -t"
 # Other
 alias f="foreman"
 alias tele-ssh="ssh -F .tele/ssh_config"
+alias pwm="pwpw protonmail.mailbox"
 
 # Custom functions
 function gcm() {
@@ -246,6 +247,11 @@ function vc() {
   git status --short | ag "UU .*" | awk '{ print $2 }' | xargs -o vim -p "+/<<<<" "+:set hlsearch!"
 }
 
+# Kill current tmux session.
+function tdie() {
+  tmux kill-session -t $(tmux list-sessions | grep attached | awk '{ print $1 }')
+}
+
 # PROMPT
 
 # get the name of the branch or commit (short SHA) we are on
@@ -293,3 +299,7 @@ setopt interactivecomments
 
 # GPG
 export GPGKEY=2A0AB6FB
+
+# Running yEd without lag issues.
+# See http://yed.yworks.com/support/qa/7039/horribly-slow-on-macbook-pro-15-retina-display
+alias yed="java -jar ~/code/forks/yed-3.14.1/yed.jar &"
