@@ -306,3 +306,8 @@ export GPGKEY=2A0AB6FB
 # Running yEd without lag issues.
 # See http://yed.yworks.com/support/qa/7039/horribly-slow-on-macbook-pro-15-retina-display
 alias yed="java -jar ~/code/forks/yed-3.14.1/yed.jar &"
+
+if [[ -f ~/.homebrew_github_api_token ]]; then
+  export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.homebrew_github_api_token)
+fi
+
