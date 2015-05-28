@@ -135,6 +135,7 @@ alias gpr="git pull-request"
 alias current-branch="git symbolic-ref --short HEAD"
 alias grbom="git rebase origin/master master"
 alias gullsh="git pull && git push"
+alias gap="git add -p ."
 
 # Vagrant
 alias v="vagrant"
