@@ -104,6 +104,7 @@ alias "bitch,"=sudo
 alias quit="exit"
 alias ll="ls -lsah"
 alias mj="make --jobs=4"
+alias pbgist="pbpaste | gist -c -p"
 
 if [ "`uname`" = 'Linux' ]; then
   alias ls="ls --color=always"
