@@ -154,7 +154,7 @@ alias pwm="pwpw protonmail.mailbox"
 
 # Custom functions
 function gcm() {
-  issue_number=$(git symbolic-ref --short HEAD | grep -Ei "^\d+[-_]" | grep -oEi "^\d+")
+  local issue_number=$(git symbolic-ref --short HEAD | awk -F \[-_\] ' $1 ~ /[[:digit:]]/ { print $1 } ')
 
   if [[ -n $issue_number ]]; then
     commit_message=$(echo "$*\n\nRefs #${issue_number}.")
@@ -163,6 +163,18 @@ function gcm() {
   fi
 
   git commit -m $commit_message
+}
+
+function gc() {
+  local issue_number=$(git symbolic-ref --short HEAD | awk -F \[-_\] ' $1 ~ /[[:digit:]]/ { print $1 } ')
+
+  if [[ -n $issue_number ]]; then
+    local commit_file=$(mktemp -t `basename $PWD`)
+    echo "(refs #${issue_number})." >> $commit_file
+    git commit -e -v -F $commit_file
+  else
+    git commit -v
+  fi
 }
 
 function gash() {
