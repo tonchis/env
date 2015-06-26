@@ -170,7 +170,14 @@ function gc() {
 
   if [[ -n $issue_number ]]; then
     local commit_file=$(mktemp -t `basename $PWD`)
+
+    if [[ $# -gt 0 ]]; then
+      echo "$@" >> $commit_file
+      echo "" >> $commit_file
+    fi
+
     echo "(refs #${issue_number})." >> $commit_file
+
     git commit -e -v -F $commit_file
   else
     git commit -v
