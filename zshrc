@@ -266,6 +266,10 @@ function tdie() {
   tmux kill-session -t $(tmux list-sessions | grep attached | awk '{ print $1 }')
 }
 
+function gac() {
+  git status --short | ag "UU .*" | awk '{ print $2 }' | xargs git add
+}
+
 # PROMPT
 
 # get the name of the branch or commit (short SHA) we are on
