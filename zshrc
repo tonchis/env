@@ -281,6 +281,14 @@ function vol() {
   mpc -h "mopidi2.local" volume $1 >/dev/null
 }
 
+function gpri() {
+  local issue_number=$(git symbolic-ref --short HEAD | awk -F \[-_\] ' $1 ~ /[[:digit:]]/ { print $1 } ')
+
+  if [[ -n $issue_number ]]; then
+    git pull-request -i $issue_number -c
+  fi
+}
+
 # PROMPT
 
 # get the name of the branch or commit (short SHA) we are on
