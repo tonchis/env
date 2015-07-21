@@ -277,6 +277,10 @@ function gac() {
   git status --short | ag "UU .*" | awk '{ print $2 }' | xargs git add
 }
 
+function vol() {
+  mpc -h "mopidi2.local" volume $1 >/dev/null
+}
+
 # PROMPT
 
 # get the name of the branch or commit (short SHA) we are on
