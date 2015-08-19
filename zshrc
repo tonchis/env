@@ -325,6 +325,9 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 # https://github.com/foca/ensure bin path.
 export PATH="$PATH:/opt/ensure/bin"
 
+# brew info coreutils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
 # CHRUBY
 
 CHRUBY_SCRIPT="/usr/local/opt/chruby/share/chruby/chruby.sh"
