@@ -136,7 +136,8 @@ alias gpr="git pull-request"
 alias current-branch="git symbolic-ref --short HEAD"
 alias grbom="git rebase origin/master master"
 alias gullsh="git pull && git push"
-alias gap="git add -p ."
+alias gap="git add -p"
+alias gcw="gc wip"
 
 # Vagrant
 alias v="vagrant"
@@ -166,22 +167,24 @@ function gcm() {
 }
 
 function gc() {
-  local issue_number=$(git symbolic-ref --short HEAD | awk -F \[-_\] ' $1 ~ /[[:digit:]]/ { print $1 } ')
+  local commit_file=$(mktemp -t `basename $PWD`.XXXXXXXXX)
 
-  if [[ -n $issue_number ]]; then
-    local commit_file=$(mktemp -t `basename $PWD`)
-
-    if [[ $# -gt 0 ]]; then
-      echo "$@" >> $commit_file
-      echo "" >> $commit_file
-    fi
-
-    echo "(refs #${issue_number})." >> $commit_file
-
-    git commit -e -v -F $commit_file
-  else
-    git commit -v
+  if [[ "$1" == "wip" ]]; then
+    echo -n "[WIP] " >> $commit_file
+    shift
   fi
+
+  if [[ $# -gt 0 ]]; then
+    echo "$@" >> $commit_file
+    echo "" >> $commit_file
+  fi
+
+  local issue_number=$(git symbolic-ref --short HEAD | awk -F \[-_\] ' $1 ~ /[[:digit:]]/ { print $1 } ')
+  if [[ -n $issue_number ]]; then
+    echo "(refs #${issue_number})." >> $commit_file
+  fi
+
+  git commit -e -v -F $commit_file
 }
 
 function gash() {
