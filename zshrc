@@ -292,6 +292,10 @@ function gpri() {
   fi
 }
 
+function timestamp() {
+  ruby -e 'p Time.now.to_i' | xargs echo -n | pbcopy
+}
+
 # PROMPT
 
 # get the name of the branch or commit (short SHA) we are on
