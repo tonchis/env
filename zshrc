@@ -138,6 +138,7 @@ alias grbom="git rebase origin/master master"
 alias gullsh="git pull && git push"
 alias gap="git add -p"
 alias gcw="gc wip"
+alias gundie="git reset --hard HEAD~1"
 
 # Vagrant
 alias v="vagrant"
