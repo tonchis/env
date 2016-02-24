@@ -297,6 +297,15 @@ function timestamp() {
   ruby -e 'p Time.now.to_i' | xargs echo -n | pbcopy
 }
 
+function gup() {
+  local branch=$(git symbolic-ref --short HEAD)
+  git stash
+  git fetch --prune
+  git checkout stable && git rebase
+  git checkout master && git rebase
+  git checkout $branch
+  git stash pop
+}
 # PROMPT
 
 # get the name of the branch or commit (short SHA) we are on
