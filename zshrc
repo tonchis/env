@@ -197,7 +197,7 @@ function hcurl() {
 }
 
 function scurl() {
-  curl -w '%{http_code}\n' -s -f -o /dev/null $@
+  curl -L -w '%{http_code}\n' -s -f -o /dev/null $@
 }
 
 function yoall() {
