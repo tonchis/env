@@ -306,6 +306,18 @@ function gup() {
   git checkout $branch
   git stash pop
 }
+
+function ssh-add-key() {
+  local full_path=$(echo $1)
+  if [[ -n $(ssh-add -l >/dev/null | awk '{ print $3 }' | grep $full_path) ]]; then
+    echo "Key already added."
+    return
+  else
+    echo "Adding key:"
+    ssh-add $1
+  fi
+}
+
 # PROMPT
 
 # get the name of the branch or commit (short SHA) we are on
